@@ -255,7 +255,8 @@
 (defun mode-has-lsp-p ()
   "Check if MODE (or current major-mode) has an LSP server configured in Eglot."
   (require 'eglot nil t)
-  (and (buffer-file-name) (cl-fourth (eglot--guess-contact))))
+  (and (buffer-file-name)
+       (ignore-errors (cl-fourth (eglot--guess-contact)))))
 
 (defun move-line-up (arg)
   "Drag current line to previous line, keeping point on current line.
