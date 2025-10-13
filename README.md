@@ -160,4 +160,4 @@ All behavior (both functional and errors) from this config represents the normal
 
 ## License
 
-This library is licensed under the [0BSD](https://opensource.org/license/0bsd) license.
+This configuration is licensed under the [0BSD](https://opensource.org/license/0bsd) license.
