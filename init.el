@@ -107,13 +107,14 @@
 ;;
 ;; PACKAGE LIST:
 ;;
-;; This config installs 17 third-party packages:
+;; This config installs these third-party packages:
 ;; - csv-mode: CSV file editing
 ;; - diff-hl: Git diff indicators in the fringe
 ;; - doom-modeline: Modern mode-line
 ;; - doom-themes: Collection of themes (Gruvbox used by default)
 ;; - go-mode: Go language support
 ;; - helpful: Better help buffers
+;; - json-mode: JSON highlight support
 ;; - lua-mode: Lua language support
 ;; - magit: Git interface
 ;; - marginalia: Completion annotations
@@ -215,6 +216,7 @@
         doom-themes
         go-mode
         helpful
+	json-mode
         lua-mode
         magit
         marginalia

@@ -129,6 +129,7 @@ This config does nothing special, it's just Emacs with better defaults.
 - **doom-themes:** Collection of themes (Gruvbox used by default)
 - **go-mode:** Go language support
 - **helpful:** Better help buffers
+- **json-mode:** JSON highlight support
 - **lua-mode:** Lua language support
 - **magit:** Git interface
 - **marginalia:** Completion annotations
