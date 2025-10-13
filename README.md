@@ -4,7 +4,9 @@
   <img src="medicated-emacs.png" alt="Medicated Emacs Logo">
 </p>
 
-A minimal, modern Emacs configuration that just works.
+> If you want a good vanilla Emacs experience, go with Medicated Emacs.
+>
+> — Sun Tzu
 
 ## Philosophy
 
@@ -119,7 +121,7 @@ This config does nothing special, it's just Emacs with better defaults.
 
 ## What's Included
 
-### 16 Third-Party Packages
+### 17 Third-Party Packages
 
 - **csv-mode:** CSV file editing
 - **diff-hl:** Git diff indicators in the fringe
@@ -136,6 +138,7 @@ This config does nothing special, it's just Emacs with better defaults.
 - **rust-mode:** Rust language support
 - **typescript-mode:** TypeScript language support
 - **vertico:** Vertical completion UI
+- **which key:** Displays possible key bindings
 - **yaml-mode:** YAML file editing
 
 ### Built-in Enhancements
