@@ -129,6 +129,76 @@
 ;;
 ;;; Code:
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; MELPA
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
+;; Bootstrap 'use-package'
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+;; Local executables support
+(add-to-list 'exec-path (expand-file-name "~/.local/bin"))
+
+;;; Functions
+(defun mode-has-lsp-p ()
+  "Check if MODE (or current major-mode) has an LSP server configured in Eglot."
+  (require 'eglot nil t)
+  (and (buffer-file-name)
+       (ignore-errors (cl-fourth (eglot--guess-contact)))))
+
+(defun move-line-up (arg)
+  "Drag current line to previous line, keeping point on current line.
+With argument ARG, takes current line and moves it past ARG lines."
+  (interactive "*p")
+  (let ((original-column (current-column)))
+    (dotimes (i arg)
+      (transpose-lines 1)
+      (previous-line 2)
+      (move-to-column original-column))))
+
+(defun move-line-down (arg)
+  "Drag current line to next line, keeping point on current line.
+With argument ARG, takes current line and moves it past ARG lines."
+  (interactive "*p")
+  (let ((original-column (current-column)))
+    (dotimes (i arg)
+      (next-line)
+      (transpose-lines 1)
+      (previous-line 1)
+      (move-to-column original-column))))
+
+;; Packages
+(use-package csv-mode)
+(use-package diff-hl)
+(use-package doom-modeline)
+(use-package doom-themes)
+(use-package go-mode)
+(use-package helpful)
+(use-package json-mode)
+(use-package lua-mode)
+(use-package magit)
+(use-package marginalia)
+(use-package markdown-mode)
+(use-package orderless)
+(use-package rainbow-delimiters)
+(use-package rust-mode)
+(use-package typescript-mode)
+(use-package vertico)
+(use-package which-key)
+(use-package yaml-mode)
+
 ;; Variables
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -166,10 +236,7 @@
  '(lua-indent-level 2)
  '(marginalia-mode t)
  '(org-hide-leading-stars t)
- '(package-selected-packages
-   '(csv-mode diff-hl doom-modeline doom-themes go-mode helpful lua-mode magit
-	      marginalia markdown-mode orderless rainbow-delimiters rust-mode
-	      typescript-mode vertico which-key yaml-mode))
+ '(package-selected-packages nil)
  '(prog-mode-hook
    '(subword-mode (lambda nil (when (mode-has-lsp-p) (eglot-ensure)))))
  '(recentf-mode t)
@@ -190,95 +257,6 @@
  '(which-key-mode t)
  '(winner-mode t))
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-;;; Requires
-;; Melpa
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(require 'use-package)
-(setq use-package-always-ensure t)
-
-(setq my-package-list
-      '(csv-mode
-        diff-hl
-        doom-modeline
-        doom-themes
-        go-mode
-        helpful
-	json-mode
-        lua-mode
-        magit
-        marginalia
-        markdown-mode
-        orderless
-        rainbow-delimiters
-        rust-mode
-        typescript-mode
-        vertico
-	which-key
-        yaml-mode))
-
-(dolist (package my-package-list)
-  (eval `(use-package ,package)))
-
-(unless (file-exists-p "~/.emacs.d/.first-run")
-  (write-region "" nil "~/.emacs.d/.first-run")
-  (run-with-timer 0.5 nil
-                  (lambda ()
-		    (ignore-errors (kill-buffer "*Compile-Log*"))
-		    (delete-other-windows)
-                    (message "First-time setup complete. Please restart Emacs. Closing in 10 seconds")
-		    (run-with-timer 10 nil #'save-buffers-kill-emacs))))
-
-;; Local executables support
-(add-to-list 'exec-path (expand-file-name "~/.local/bin"))
-
-;; Lazy loading of rainboe del. mode
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-
-;; Backups
-(make-directory (expand-file-name "auto-saves" user-emacs-directory) t)
-(make-directory (expand-file-name "backups" user-emacs-directory) t)
-
-;;; Functions
-(defun mode-has-lsp-p ()
-  "Check if MODE (or current major-mode) has an LSP server configured in Eglot."
-  (require 'eglot nil t)
-  (and (buffer-file-name)
-       (ignore-errors (cl-fourth (eglot--guess-contact)))))
-
-(defun move-line-up (arg)
-  "Drag current line to previous line, keeping point on current line.
-With argument ARG, takes current line and moves it past ARG lines."
-  (interactive "*p")
-  (let ((original-column (current-column)))
-    (dotimes (i arg)
-      (transpose-lines 1)
-      (previous-line 2)
-      (move-to-column original-column))))
-
-(defun move-line-down (arg)
-  "Drag current line to next line, keeping point on current line.
-With argument ARG, takes current line and moves it past ARG lines."
-  (interactive "*p")
-  (let ((original-column (current-column)))
-    (dotimes (i arg)
-      (next-line)
-      (transpose-lines 1)
-      (previous-line 1)
-      (move-to-column original-column))))
-
 ;; Bindings
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "M-s i") 'imenu)
@@ -293,6 +271,23 @@ With argument ARG, takes current line and moves it past ARG lines."
 (global-set-key (kbd "C-h v") #'helpful-variable)
 (global-set-key (kbd "C-h k") #'helpful-key)
 (global-set-key (kbd "C-h x") #'helpful-command)
+
+;; Lazy loading of rainboe del. mode
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;; Backups
+(make-directory (expand-file-name "auto-saves" user-emacs-directory) t)
+(make-directory (expand-file-name "backups" user-emacs-directory) t)
+
+;; First-time setup
+(unless (file-exists-p "~/.emacs.d/.first-run")
+  (write-region "" nil "~/.emacs.d/.first-run")
+  (run-with-timer 1 nil
+                  (lambda ()
+		    (ignore-errors (kill-buffer "*Compile-Log*"))
+		    (delete-other-windows)
+                    (message "First-time setup complete. Please restart Emacs. Closing in 10 seconds")
+		    (run-with-timer 10 nil #'save-buffers-kill-emacs))))
 
 (provide 'init.el)
 
