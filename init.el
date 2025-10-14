@@ -258,12 +258,12 @@ With argument ARG, takes current line and moves it past ARG lines."
  '(winner-mode t))
 
 ;; Bindings
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "M-s i") 'imenu)
-(global-set-key (kbd "M-<up>") 'move-line-up)
-(global-set-key (kbd "M-<down>") 'move-line-down)
-(global-set-key (kbd "M-p") 'move-line-up)
-(global-set-key (kbd "M-n") 'move-line-down)
+(global-set-key (kbd "C-x C-b") #'ibuffer)
+(global-set-key (kbd "M-s i") #'imenu)
+(global-set-key (kbd "M-<up>") #'move-line-up)
+(global-set-key (kbd "M-<down>") #'move-line-down)
+(global-set-key (kbd "M-p") #'move-line-up)
+(global-set-key (kbd "M-n") #'move-line-down)
 
 (global-set-key (kbd "C-c C-d") #'helpful-at-point)
 (global-set-key (kbd "C-h F") #'helpful-function)
