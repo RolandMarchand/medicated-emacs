@@ -225,7 +225,6 @@ With argument ARG, takes current line and moves it past ARG lines."
  '(display-line-numbers 'visual)
  '(doom-modeline-mode t)
  '(eglot-ignored-server-capabilities '(:documentHighlightProvider :inlayHintProvider))
- '(electric-pair-mode t)
  '(fill-column 80)
  '(global-auto-revert-mode t)
  '(global-diff-hl-mode t)
@@ -238,7 +237,9 @@ With argument ARG, takes current line and moves it past ARG lines."
  '(org-hide-leading-stars t)
  '(package-selected-packages nil)
  '(prog-mode-hook
-   '(subword-mode (lambda nil (when (mode-has-lsp-p) (eglot-ensure)))))
+   '(subword-mode
+     (lambda nil (when (mode-has-lsp-p) (eglot-ensure)))
+     electric-pair-local-mode))
  '(recentf-mode t)
  '(ring-bell-function 'ignore)
  '(save-place-mode t)
