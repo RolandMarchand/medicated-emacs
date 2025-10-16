@@ -223,6 +223,7 @@ With argument ARG, takes current line and moves it past ARG lines."
  '(dired-recursive-deletes 'always)
  '(dired-use-ls-dired t)
  '(display-line-numbers 'visual)
+ '(doom-modeline-icon nil)
  '(doom-modeline-mode t)
  '(eglot-ignored-server-capabilities '(:documentHighlightProvider :inlayHintProvider))
  '(fill-column 80)
