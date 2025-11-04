@@ -43,7 +43,7 @@ If these exist and contain files, **back them up and delete them**, or Emacs may
 
 ### 2. Download the configuration
 
-Place `medicated.el` as `init.el` in one of these locations:
+Place [`init.el`](init.el) in one of these locations:
 - `~/.emacs.d/init.el` (traditional location, always checked first)
 - `~/.config/emacs/init.el` (XDG-compliant location)
 
