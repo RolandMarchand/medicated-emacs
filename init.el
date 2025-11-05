@@ -276,6 +276,9 @@ With argument ARG, takes current line and moves it past ARG lines."
 
 ;; Lazy loading of rainboe del. mode
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+;; Fix a bug with Eglot: https://github.com/joaotavora/eglot/discussions/1222
+(add-hook 'java-mode-hook (lambda ()
+  (remove-hook 'eglot-connect-hook #'eglot-signal-didChangeConfiguration t)))
 
 ;; Backups
 (make-directory (expand-file-name "auto-saves" user-emacs-directory) t)
