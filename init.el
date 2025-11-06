@@ -129,6 +129,13 @@
 ;;
 ;;; Code:
 
+(when (< emacs-major-version 29)
+  (select-window (display-buffer (get-buffer-create "*Warnings*")))
+  (delete-other-windows)
+  (setq inhibit-startup-screen t)
+  (error "Medicated Emacs requires Emacs 29 or later, but you're running Emacs %d.%d"
+         emacs-major-version emacs-minor-version))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
