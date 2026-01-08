@@ -24,15 +24,14 @@ Eglot is enabled by default in all programming modes. This is the most common so
   - **Lua:** lua-language-server
   - etc.
 
-**Solutions:**
+**Possible solutions:**
 
 1. Install the appropriate LSP server for your language
-2. Remove `eglot-ensure` from `prog-mode-hook` in `custom-set-variables`
-3. Add Eglot only to specific language modes:
+2. Remove `eglot-ensure` from `prog-mode-hook` in `custom-set-variables` and add Eglot only to specific language modes:
    ```elisp
    (add-hook 'rust-mode-hook #'eglot-ensure)
    ```
-4. Disable Eglot entirely and use Emacs without LSP
+3. Disable Eglot entirely and use Emacs with another LSP or without any
 
 #### Java formatting
 
