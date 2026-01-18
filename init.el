@@ -216,6 +216,7 @@ With argument ARG, takes current line and moves it past ARG lines."
  '(backup-directory-alist '((".*" . "~/.emacs.d/backups/")))
  '(byte-compile-verbose nil)
  '(byte-compile-warnings '(cl-functions))
+ '(c-offsets-alist '((arglist-cont-nonempty . +) (arglist-close . 0)))
  '(column-number-mode t)
  '(comment-style 'multi-line)
  '(completion-styles '(orderless basic))
