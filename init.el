@@ -219,7 +219,7 @@ With argument ARG, takes current line and moves it past ARG lines."
  '(c-default-style
    '((c-mode . "k&r") (other . "k&r")))
  '(c-offsets-alist
-   '((arglist-intro . +) (arglist-cont . +) (arglist-cont-nonempty . +)
+   '((arglist-intro . +) (arglist-cont . 0) (arglist-cont-nonempty . +)
      (arglist-close . 0)))
  '(column-number-mode t)
  '(comment-style 'multi-line)
