@@ -217,7 +217,7 @@ With argument ARG, takes current line and moves it past ARG lines."
  '(byte-compile-verbose nil)
  '(byte-compile-warnings '(cl-functions))
  '(c-offsets-alist
-   '((arglist-intro . 0) (arglist-cont . +) (arglist-cont-nonempty . +)
+   '((arglist-intro . +) (arglist-cont . +) (arglist-cont-nonempty . +)
      (arglist-close . 0)))
  '(column-number-mode t)
  '(comment-style 'multi-line)
