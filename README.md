@@ -1,8 +1,7 @@
 # Medicated Emacs
 
-<p align="center">
-  <img src="medicated-emacs.png" alt="Medicated Emacs Logo">
-</p>
+<p align="center"> <img src="medicated-emacs.png" alt="Medicated Emacs Logo">
+  </p>
 
 > If you want a good vanilla Emacs experience, go with Medicated Emacs.
 >
@@ -10,7 +9,10 @@
 
 ## Philosophy
 
-Medicated Emacs enhances Emacs without hiding it. Everything uses standard Emacs patterns and conventions. No frameworks, wrappers, or special systems to learn. If you know how to customize vanilla Emacs, you know how to customize this config.
+Medicated Emacs enhances Emacs without hiding it. Everything uses standard Emacs
+patterns and conventions. No frameworks, wrappers, or special systems to learn.
+If you know how to customize vanilla Emacs, you know how to customize this
+config.
 
 **What you get:**
 - Modern completion (Vertico + Orderless + Marginalia)
@@ -35,11 +37,13 @@ Medicated Emacs enhances Emacs without hiding it. Everything uses standard Emacs
 
 ### 1. Prepare your environment
 
-Ensure you have an empty Emacs configuration directory, or none at all. Your Emacs config directory is typically one of:
+Ensure you have an empty Emacs configuration directory, or none at all. Your
+Emacs config directory is typically one of:
 - `~/.emacs.d/`
 - `~/.config/emacs/`
 
-If these exist and contain files, **back them up and delete them**, or Emacs may load conflicting configurations.
+If these exist and contain files, **back them up and delete them**, or Emacs may
+load conflicting configurations.
 
 ### 2. Download the configuration
 
@@ -47,7 +51,8 @@ Place [`init.el`](init.el) in one of these locations:
 - `~/.emacs.d/init.el` (traditional location, always checked first)
 - `~/.config/emacs/init.el` (XDG-compliant location)
 
-**Note:** Emacs prefers `~/.emacs.d/` if it exists. To use the XDG location, ensure `~/.emacs.d/` does not exist.
+**Note:** Emacs prefers `~/.emacs.d/` if it exists. To use the XDG location,
+ensure `~/.emacs.d/` does not exist.
 
 ### 3. First launch
 
@@ -74,7 +79,8 @@ M-x help-with-tutorial RET
 
 (That's: `Alt+x`, type "help-with-tutorial", press Enter)
 
-Learn Emacs as you would with vanilla Emacs. This config doesn't change fundamental concepts. Standard Emacs documentation and resources apply directly.
+Learn Emacs as you would with vanilla Emacs. This config doesn't change
+fundamental concepts. Standard Emacs documentation and resources apply directly.
 
 ## Customization
 
@@ -124,8 +130,12 @@ This config does nothing special, it's just Emacs with better defaults.
 
 ## Expected Behavior
 
-All behavior (both functional and errors) from this config represents the normal Emacs experience, or bugs in the included third-party packages. When troubleshooting issues, standard Emacs debugging approaches apply. There's no special configuration layer to navigate.
+All behavior (both functional and errors) from this config represents the normal
+Emacs experience, or bugs in the included third-party packages. When
+troubleshooting issues, standard Emacs debugging approaches apply. There's no
+special configuration layer to navigate.
 
 ## License
 
-This configuration is licensed under the [0BSD](https://opensource.org/license/0bsd) license.
+This configuration is licensed under the
+[0BSD](https://opensource.org/license/0bsd) license.
