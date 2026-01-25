@@ -92,7 +92,7 @@
 ;; - If a language server is missing, Eglot will show error messages
 ;; - Different languages need different LSP servers:
 ;;   * C/C++: clangd
-;;   * Rust: rust-analyzer  
+;;   * Rust: rust-analyzer
 ;;   * Python: pyright or pylsp
 ;;   * Go: gopls
 ;;   * JavaScript/TypeScript: typescript-language-server
