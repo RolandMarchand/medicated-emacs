@@ -251,7 +251,8 @@ With argument ARG, takes current line and moves it past ARG lines."
  '(package-selected-packages nil)
  '(prog-mode-hook
    '(subword-mode
-     (lambda nil (when (mode-has-lsp-p) (eglot-ensure)))))
+     (lambda nil (when (mode-has-lsp-p) (eglot-ensure)))
+     whitespace-mode))
  '(recentf-mode t)
  '(ring-bell-function 'ignore)
  '(save-place-mode t)
